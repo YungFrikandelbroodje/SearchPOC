@@ -6,6 +6,15 @@
 2. Click on the extension, and then click 'Activate Plugin'
 3. You can open the console and backgroundpage to see the logs
 
+## Problem
+
+As you can see, it only searches the last term. This is because it goes through the for-loop really fast, and ends there.
+
+It needs to do this in steps. 
+1. First search the first term
+2. Send the data to the background
+3. Search the second term
+4. Etc...
 
 ## Stackoverflow Issue
 
