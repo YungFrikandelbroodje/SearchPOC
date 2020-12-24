@@ -19,10 +19,6 @@ $(document).ready(function () {
   });
 });
 
-document.addEventListener("SEARCH_TERMS", function (e) {
-  var msg = e.msg;
-  chrome.runtime.sendMessage({ msg: "SEARCH_TERMS" });
-});
 
 function readLocalStorage(key) {
   return new Promise((resolve, reject) => {
@@ -38,10 +34,10 @@ function readLocalStorage(key) {
 
 function searchSingleTerm(term) {
   // location.href = "https://www.google.com/search?q=a"
-  $(".gLFyf.gsfi").val(term);
+  document.querySelector('.gLFyf.gsfi').value = term
 
   console.log("-- Executing click search button--");
-  $(".Tg7LZd").click();
+  document.querySelector('.Tg7LZd').click();
 
   let firstUrl = document.querySelector('.yuRUbf').href
 

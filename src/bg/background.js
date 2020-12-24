@@ -7,17 +7,19 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
 async function searchGoogle(url) {
   let terms = ["food", "nature", "computers", "trees", "clothing"];
+  console.log(terms);
 
-  terms.forEach(function (term) {
-    chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
-      // console.log(`SendMSG got tab id ${tabs[0].id}`);
+  chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+    // console.log(`SendMSG got tab id ${tabs[0].id}`);
+
+    terms.forEach(function (term) {
       console.log("Sending term..");
-      chrome.tabs.sendMessage(tabs[0].id, {'msg': 'SEARCH_SINGLE_TERM', term: term}, function (response) {
+      chrome.tabs.sendMessage(tabs[0].id, { msg: "SEARCH_SINGLE_TERM", term: term }, function (response) {
         setTimeout(() => {
           console.log(response);
         }, 5000);
 
-        console.log(response)
+        console.log(response);
       });
     });
   });

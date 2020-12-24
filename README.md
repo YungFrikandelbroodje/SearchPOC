@@ -23,9 +23,6 @@ It needs to do this in steps.
 
 I tried this, but when a page reloads (like on google), it begins at the first item in the array again. It needs to remember the last term that it has searched.
 
-### Why is the messaging so complicated?
-
-Back in time I was trying to get a message from the browser action to the background script. It wasn't possible for some reason to do it directly, so I made a bridge in the contentscript. You should only focus on "SEARCH_TERMS" in background.js, which sends a "SEARCH_SINGLE_TERM" to content.js with a single searchterm.
 
 ## Possible solution
 
